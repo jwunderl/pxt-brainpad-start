@@ -123,8 +123,10 @@ namespace storyboard {
     //% block="start brainpad boot sequence" blockId=startBrainPadBootSequence
     //% weight=10
     export function runBrainPadStart() {
+        game.pushScene()
         brainPadBootSequence.register();
         brainPadBootSequence.start(() => { /**game.popScene()**/ }); // the done param doesn't seem to be being applied properly
+        game.popScene()
         game.popScene()
     }
 }
