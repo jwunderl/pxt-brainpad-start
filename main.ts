@@ -127,6 +127,5 @@ namespace storyboard {
         brainPadBootSequence.register();
         brainPadBootSequence.start(() => { /**game.popScene()**/ }); // the done param doesn't seem to be being applied properly
         game.popScene()
-        game.popScene()
     }
 }
