@@ -1,5 +1,5 @@
 namespace storyboard {
-    function runBrainpadBoot() {
+    function runBrainPadBoot() {
         scene.setBackgroundColor(2)
         const logoLeft = sprites.create(img`
             . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
@@ -114,5 +114,17 @@ namespace storyboard {
      * Brainpad boot sequence
      */
     //% block="BrainPad" fixedInstance whenUsed
-    export const brainpadBootSequence = new BootSequence(runBrainpadBoot, 0x737373);
+    export const brainPadBootSequence = new BootSequence(runBrainPadBoot, 0x737373);
+
+
+    /**
+     * Stops the current scene and restart the previous scene
+     */
+    //% block="start brainpad boot sequence" blockId=startBrainPadBootSequence
+    //% weight=10
+    export function runBrainPadStart() {
+        brainPadBootSequence.register();
+        brainPadBootSequence.start(() => { /**game.popScene()**/ }); // the done param doesn't seem to be being applied properly
+        game.popScene()
+    }
 }
